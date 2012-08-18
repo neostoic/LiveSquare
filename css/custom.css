@@ -1,0 +1,44 @@
+.highlight {
+	background: #8EEC6A;
+}
+
+.stats {
+	float: left;
+}
+
+.here {
+	float: right;
+	padding-top: 10px;
+	padding-right: 10px;
+}
+
+.clear {
+	clear: both;
+}
+
+ul {
+ list-style: none;
+}
+
+#map {
+	height: 700px;
+}
+
+#mapCanvas {
+	height: 700px;
+}
+
+#list {
+	max-height: 536px;
+	overflow: hidden;
+}
+
+.imgCenter {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.fade {
+	opacity: .2;
+}

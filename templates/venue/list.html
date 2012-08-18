@@ -1,0 +1,23 @@
+<li id="<%= venue.attributes.id %>" class="liSelect">
+	<div>
+		
+		<div>
+			<h5><a href="https://foursquare.com/v/<%= venue.attributes.id %>" target="_blank"><%= venue.attributes.name %></a></h5>
+		</div>
+		
+		<div class="stats">
+			Checkins: <%= venue.attributes.stats.checkinsCount %> <br>
+			Tips: <%= venue.attributes.stats.tipCount %> <br>
+			Users: <%= venue.attributes.stats.usersCount %> <br>
+		</div>
+		
+		<div class="here">
+			<h3><%= venue.attributes.hereNow.count %> here</h3>
+		</div>
+		
+	</div>
+	
+	<div class="clear">
+	</div>
+	
+</li> 
