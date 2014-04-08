@@ -3,36 +3,36 @@
   <head>
     <meta charset="utf-8">
 
-	<title>LiveSquare - Realtime Trends in Foursquare</title>
-	<meta name="description" content="Realtime Trends in Foursquare">
-	<meta name="author" content="Giles Tamplin">
+    <title>LiveSquare - Realtime Trends in Foursquare</title>
+    <meta name="description" content="Realtime Trends in Foursquare">
+    <meta name="author" content="Giles Tamplin">
 
-	<meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
 
-	<link rel="stylesheet" href="css/bootstrap.css">
-	<style type="text/css">
-      body {
-        padding-top: 60px;
-        padding-bottom: 40px;
-      }
-    </style>
-	<link rel="stylesheet" href="css/bootstrap-responsive.css">
-	<link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style type="text/css">
+        body {
+          padding-top: 60px;
+          padding-bottom: 40px;
+        }
+      </style>
+    <link rel="stylesheet" href="css/bootstrap-responsive.css">
+    <link rel="stylesheet" href="css/custom.css">
 
-	<!-- Google Key: key=AIzaSyCp3f9YeLZmAi-ARuziW61AS2uaU8TwoJ4& -->
+    <!-- Google Key: key=AIzaSyCp3f9YeLZmAi-ARuziW61AS2uaU8TwoJ4& -->
 
-	<!-- Load the scripts -->
-	<script type='text/javascript' src='http://static.firebase.com/v0/firebase.js'></script>
-	<script type='text/javascript' src='http://maps.googleapis.com/maps/api/js?sensor=false'></script>
-	<script type='text/javascript' src="js/libs/underscore/underscore.js"></script> 
-	<script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
- 	<script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/jquery-ui.min.js"></script>
+    <!-- Load the scripts -->
+    <script type='text/javascript' src='http://static.firebase.com/v0/firebase.js'></script>
+    <script type='text/javascript' src='http://maps.googleapis.com/maps/api/js?sensor=false'></script>
+    <script type='text/javascript' src="js/libs/underscore/underscore.js"></script> 
+    <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/jquery-ui.min.js"></script>
     <script type='text/javascript' src="js/libs/jquery/jquery-scrollTo.js"></script>
-	<script type='text/javascript' src="js/libs/bootstrap/bootstrap-min.js"></script>
+    <script type='text/javascript' src="js/libs/bootstrap/bootstrap-min.js"></script>
     <script type='text/javascript' src="js/libs/bootstrap/bootstrap-modal.js"></script>
 
-	<!-- Load the app -->
-	<script type='text/javascript' src="js/app.js"></script>
+    <!-- Load the app -->
+    <script type='text/javascript' src="js/app.js"></script>
 
   </head>
   <body>
@@ -48,64 +48,62 @@
           <a class="brand" href="#">LiveSquare</a>
           <div class="nav-collapse">
             <ul class="nav">
-			  <li id="about"><a href="#about">About</a></li>
-			  <li class="divider-vertical"></li>
+              <li id="about"><a href="#about">About</a></li>
+              <li class="divider-vertical"></li>
               <li id="sanfran" lat="37.774921" lng="-122.427692" class="city"><a href="#">San Francisco</a></li>
-			  <li id="chicago" lat="41.903938" lng="-87.650814" class="city"><a href="#">Chicago</a></li>
-			  <li id="nyc" lat="40.741925" lng="-73.985023" class="city active"><a href="#">New York City</a></li>
+              <li id="chicago" lat="41.903938" lng="-87.650814" class="city"><a href="#">Chicago</a></li>
+              <li id="nyc" lat="40.741925" lng="-73.985023" class="city active"><a href="#">New York City</a></li>
             </ul>
-			<ul class="nav pull-right">
-				<li class="active"><p class="navbar-text">Powered by:</p></li>
-				<li><a href="http://foursquare.com">Foursquare</a></li> 
-				<li><a href="http://firebase.com">Firebase</a></li>
-			</ul>
+            <ul class="nav pull-right">
+              <li class="active"><p class="navbar-text">Powered by:</p></li>
+              <li><a href="http://foursquare.com">Foursquare</a></li> 
+              <li><a href="http://firebase.com">Firebase</a></li>
+            </ul>
           </div><!--/.nav-collapse -->
         </div>
       </div>
     </div>
 
     <div class="container">
-
       <div class="row">
         <div class="span8" id="map">
-			<div id="mapCanvas">
-			</div>
+          <div id="mapCanvas">
+          </div>
         </div>
         <div class="span4">
-			<div class="fade" id="upList">
-				<img class="imgCenter" src="img/arrowtop.png"></img>
-			</div>
-				<ul id="list">
-				</ul>
-			<div class="fade" id="downList">
-				<img class="imgCenter" src="img/arrowbottom.png"></img>
-			</div>
-       </div>
+          <div class="fade" id="upList">
+            <img class="imgCenter" src="img/arrowtop.png"></img>
+          </div>
+          <ul id="list">
+          </ul>
+          <div class="fade" id="downList">
+            <img class="imgCenter" src="img/arrowbottom.png"></img>
+          </div>
+        </div>
       </div>
-
     </div> <!-- /container -->
-	
-	<div class="modal hide" id="aboutModal">
-	  <div class="modal-header">
-	    <h3>About LiveSquare</h3>
-	  </div>
-	  <div class="modal-body">
-	    <p>LiveSquare was put together by this guy: <a href="http://www.twitter.com/gilestamplin">@GilesTamplin</a></p>
-		<h5>Some functionality:</h5>
-		<p>When a venue flashes yellow in the list and bounces on the map, is has automatically updated.</p>
-		<p>Click on a map icon or list title to open venue details on the foursquare website.</p>
-		<p>Mousing over a venue on the map or list will highlight a venue on the other.</p>
-	  </div>
-	  <div class="modal-footer">
-	    <a href="#" class="btn btn-primary" data-dismiss="modal">Close</a>
-	  </div>
-	</div>
-	
-	<div class="modal hide" id="loadingModal">
-	  <div class="modal-body">
-	    <p><img class="imgCenter" src="img/loading.gif"></img></p>
-	  </div>
-	</div>
+  
+  <div class="modal hide" id="aboutModal">
+    <div class="modal-header">
+      <h3>About LiveSquare</h3>
+    </div>
+    <div class="modal-body">
+      <p>LiveSquare was put together by this guy: <a href="http://www.twitter.com/gilestamplin">@GilesTamplin</a></p>
+      <h5>Some functionality:</h5>
+      <p>When a venue flashes yellow in the list and bounces on the map, is has automatically updated.</p>
+      <p>Click on a map icon or list title to open venue details on the foursquare website.</p>
+      <p>Mousing over a venue on the map or list will highlight a venue on the other.</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#" class="btn btn-primary" data-dismiss="modal">Close</a>
+    </div>
+  </div>
+  
+  <div class="modal hide" id="loadingModal">
+    <div class="modal-body">
+      <p><img class="imgCenter" src="img/loading.gif"></img></p>
+    </div>
+  </div>
 
   </body>
 </html>
