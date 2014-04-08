@@ -1,4 +1,3 @@
-
 // App.js
 
 // Launch app on DOM load
@@ -228,5 +227,5 @@ $(document).ready(function() {
 	// Launch MYC Trend on page load
 	$('#nyc').click();
 
-		
+
 }); // End Document Ready
